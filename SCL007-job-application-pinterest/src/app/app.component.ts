@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import { PhonoService } from '../app/service/phono.service';
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SCL007-job-application-pinterest';
+
+  phonos: any[] =[];
+  
+ 
+  constructor(protected PhonoService: PhonoService) {
+  }
+
+  ngOnInit() {
+    this.PhonoService.getPhonos()
+    .subscribe(
+      (data) => { // Success
+        this.phonos = data['hits'];
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  scrollHandler(e){
+    console.log(e);
+  }
 }
