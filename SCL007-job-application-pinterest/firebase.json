@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/SCL007-job-application-pinterest",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
